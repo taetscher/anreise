@@ -1,0 +1,193 @@
+{
+    "type": "FeatureCollection",
+    "name": "poi",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "1",
+                "name": "<p><h4>Schloss Oberhofe</h4></p><p>Hie zeremonieremer</p>",
+                "rating": null,
+                "kind": "castle",
+                "wiki_article": "https://de.wikipedia.org/wiki/Schloss_Oberhofen",
+                "icon_size": 0.08
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                     7.668532500760256,
+                    46.729685369777634
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "2",
+                "name": "<p><h4>Parkhuus Rider</h4></p><p>hie chasch parkiere :)</p>",
+                "rating": null,
+                "kind": "parking",
+                "wiki_article": "https://de.wikipedia.org/wiki/Parkhaus",
+                "icon_size": 0.1
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.671480026878376,
+                    46.728867598810446
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "2",
+                "name": "<p><h4>Parkplatz</h4></p><p>Hie hätts ohno e Parkplatz</p>",
+                "rating": null,
+                "kind": "parking",
+                "wiki_article": "https://de.wikipedia.org/wiki/Parkplatz",
+                "icon_size": 0.05
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.672733301253012,
+                    46.72864897619101
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "3",
+                "name": "<p><h4>Parkplatz</h4></p><p> (hie hesch äuä ke Platz de, i würd is Parkhus Rider)</p>",
+                "rating": null,
+                "kind": "no_parking",
+                "wiki_article": "https://de.wikipedia.org/wiki/Parkplatz",
+                "icon_size": 0.08
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.668594193815632,
+                    46.730582461394334
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "4",
+                "name": "<p><h4>Bushaltstell (für hei)</h4></p> <p>Die fahre im Viertustunde-takt bis 2244. <br> När hesch e Moonliner am 0231</p>",
+                "rating": null,
+                "kind": "bus",
+                "wiki_article": "https://de.wikipedia.org/wiki/Haltestelle",
+                "icon_size": 0.06
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.668292752084877,
+                    46.73133160420019
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "4",
+                "name": "<p><h4>Bushaltstell (für häre)</h4></p> <p>Hie chunnsch ah wede mitem Bus chunnsch</p>",
+                "rating": null,
+                "kind": "bus",
+                "wiki_article": "https://de.wikipedia.org/wiki/Haltestelle",
+                "icon_size": 0.06
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.6687259977225395,
+                    46.73108012286894
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "5",
+                "name": "<p><h4>Bushaltstell</h4></p> <p>Hie fahrt dr Bus für häre <br> (I würd äuä 1202 aapeile)</p>",
+                "rating": null,
+                "kind": "bus",
+                "wiki_article": "https://de.wikipedia.org/wiki/Haltestelle",
+                "icon_size": 0.06
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.630612719565536,
+                    46.75492678951727
+                ]
+            }
+            
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "6",
+                "name": "<p><h4>Huus am See</h4></p> <p>Für die wo nächtige</p>",
+                "rating": null,
+                "kind": "hotel",
+                "wiki_article": "https://www.hausamsee.ch/",
+                "icon_size": 0.2
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.660942864477729,
+                    46.733744822169626
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "7",
+                "name": "<p><h4>Restaurant</h4></p> <p>Hie düemer mampfe när</p>",
+                "rating": null,
+                "kind": "restaurant",
+                "wiki_article": "https://www.restaurant-schlossoberhofen.ch/de/",
+                "icon_size": 0.2
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.668037856613038,
+                    46.73007492489493
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "fid": "8",
+                "name": "<p><h4>Schiffländti</h4></p> <p>Chasch natürlech oh mitem Schiff cho, gäu.</p>",
+                "rating": null,
+                "kind": "ship",
+                "wiki_article": "https://de.wikipedia.org/wiki/Raddampfer",
+                "icon_size": 0.3
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    7.667312472956772,
+                    46.73028796501926
+                ]
+            }
+        }
+    ]
+}
