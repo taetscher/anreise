@@ -1,7 +1,7 @@
 
 import {addPOIs} from './layers/add_poi.js';
-import {addTravels} from './layers/add_travels.js';
-
+import { updateLabels } from './tooltips/update_labels.js';
+import { createLabels } from './tooltips/labeling.js';
 
 //create new map
 const map = new maplibregl.Map({
@@ -10,8 +10,8 @@ const map = new maplibregl.Map({
             hash: true, //set this to true when productive (shows xyz in URL and updates it on the fly)
             minZoom: 1,
             maxZoom: 19,
-            center: [7.6523, 46.73435],
-            zoom: 12.89
+            center: [7.66704, 46.72928],
+            zoom: 14.52
             //,preserveDrawingBuffer: true
           });
 
@@ -20,9 +20,15 @@ map.addControl(new maplibregl.NavigationControl());
 map.addControl(new maplibregl.ScaleControl({position: "bottom-left"}))
 
 //when map is loaded, load additional layers
-map.on('load', function() {
+map.on('load', async function() {
     
     //addTravels(map);
-    addPOIs(map);
+    await addPOIs(map);
+    createLabels(map, 'pois');
+    updateLabels(map);
 
 });
+
+map.on('zoom', function(){
+  updateLabels(map);
+})

@@ -2,6 +2,7 @@
 @import url('./popups/hover/hover_popups.css');
 @import url('./mapelements/maplibreStyleBar.css');
 @import url('./scrollbar.css');
+@import url('./popups/mapLabels.css');
 
 #map {
     position: absolute;
@@ -14,4 +15,13 @@
 *:focus {
     outline: 0;
     border: none !important;
+}
+
+:root{
+    --background_color: #ffffffac;
+    --legend_background_color: #ffffff9f;
+    --background_color_close: #eb6608;
+    --background_color_close_hover: #eb670882;
+    --color_popup_text_content: #525252;
+    --color_popup_text_title: #004f9f;
 }

@@ -1,0 +1,44 @@
+/* Popup Styling */
+
+/* common attributes of all maplibre popups */
+
+.maplibregl-popup-content {
+    display: flex;
+    overflow: hidden;
+    background-color: var(--background_color);
+    backdrop-filter: blur(0.2em);
+}
+
+/* close-button for the popup */
+.maplibregl-popup-close-button {
+    display: none;
+}
+
+/* disable little arrow for popups */
+.maplibregl-popup-tip{
+    display: none;
+}
+
+/* Styling des Popups */
+.riag_popup {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Styling des Popup-Inhalts */
+.riag_popup_content {
+    flex-direction: column;      /* stack children vertically */
+    margin: 1px;
+}
+
+/* Styling des Titels von Popups*/
+.popup_title {
+    align-items: left;
+    text-align: left;
+    font-size: 6px;
+    color: var(--color_popup_text_title);
+    text-align: left;
+
+}
+
+

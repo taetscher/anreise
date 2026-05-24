@@ -1,4 +1,3 @@
-import {add_poi_tooltip, add_poi_iframe, remove_poi_tooltip} from '../tooltips/poi_tooltips.js';
 import { loadIcons } from '../icons/load_icons.js';
 
 export async function addPOIs(map) {
@@ -9,11 +8,14 @@ export async function addPOIs(map) {
 
     // add images for styling
     await loadIcons(map);
+
+    const response = await fetch('./geojson/poi.geojson'); // Or your API URL
+    const geojsonData = await response.json();
     
     //in order to use data with mapbox, you need to add a source first
     map.addSource('poi_source', {
             type: 'geojson',
-            data: './geojson/poi.geojson',
+            data: geojsonData,
             attribution: "© melyamin",
             //cluster: true,
             //clusterMaxZoom: 7,
@@ -40,33 +42,35 @@ export async function addPOIs(map) {
                 , 8
             ]
         }
-        })
-    
-    //create popup objects
-    var hover_popup = new maplibregl.Popup({
-        className: 'poi_hover',
-        closeButton: false,
-        closeOnClick: false,
-        closeOnMove: true,
-        maxWidth: 'none'
         });
 
-    var iframe_popup = new maplibregl.Popup({
-        className: 'poi_iframe_container',
-        closeButton: true,
-        closeOnClick: true,
-        closeOnMove: true,
-        maxWidth: 'none'
+    // add mousepointer handling
+    // Change the cursor to a pointer when the mouse is over the affected layer.
+    map.on('mouseenter', 'pois', () => {
+        map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'pois', () => {
+        map.getCanvas().style.cursor = '';
+    });
+
+    map.on('click', 'pois', (e) => {
+        const feature = e.features[0];
+
+        map.getCanvas().style.cursor = 'pointer';
+
+        const coordinates = feature.geometry.coordinates.slice();
+        const targetCenter = [coordinates[0], coordinates[1]];
+
+        map.flyTo({
+            center: targetCenter,
+            zoom: 17,
+            speed: 1.2,
+            essential: true
         });
+    });
 
-    // handle tooltips
-    //display popup on mouseenter
-    add_poi_tooltip(map, 'pois', hover_popup)
-
-    // display iframe on click
-    add_poi_iframe(map, 'pois', iframe_popup)
+    console.log('pois added.')
     
-    //remove popup on mousleave
-    remove_poi_tooltip(map, 'pois', hover_popup)
-
-}
+};
