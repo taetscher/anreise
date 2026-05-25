@@ -10,8 +10,8 @@ const map = new maplibregl.Map({
             hash: true, //set this to true when productive (shows xyz in URL and updates it on the fly)
             minZoom: 1,
             maxZoom: 19,
-            center: [7.66704, 46.72928],
-            zoom: 14.52
+            center: [7.65309,46.742],
+            zoom: 11.8
             //,preserveDrawingBuffer: true
           });
 

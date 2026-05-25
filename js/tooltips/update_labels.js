@@ -5,7 +5,7 @@
 export function updateLabels(map) {
   // get current zoom level and determine if labels should show or not
   const zoom = map.getZoom();
-  const visible = zoom >= 16 ? 'flex' : 'none';
+  const visible = zoom >= 17 ? 'flex' : 'none';
 
   // Update the CSS for all .riag-marker elements
   let style = document.getElementById('.maplibregl-popup-content');
@@ -21,12 +21,7 @@ export function updateLabels(map) {
   // otherwise, set visibility
   style.textContent = `
     .maplibregl-popup-content {
-        width: 100%;
-        height: 100%;
-        padding: 1em;
         display: ${visible} !important;
-        overflow: hidden;
-        background-color: var(--background_color)
     }
   `;
 }

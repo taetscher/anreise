@@ -47,15 +47,11 @@ function createLabel(feature, map) {
 
     // combine into html-element
     const innerHTML = `
-    <div class="riag-marker">
-        <a href="${uri}" target="blank">
-            <div class="riag_popup">
-                <div class="riag_popup_content">
-                    ${name}
-                </div>
-            </div>
-        </a>
+    <a href="${uri}" target="blank">
+    <div class="pouptext">
+        ${name}
     </div>
+    </a>
     `;
 
     // calculate coordinates for popup

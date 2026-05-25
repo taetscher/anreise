@@ -65,7 +65,7 @@ export async function addPOIs(map) {
 
         map.flyTo({
             center: targetCenter,
-            zoom: 17,
+            zoom: 17.8,
             speed: 1.2,
             essential: true
         });

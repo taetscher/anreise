@@ -2,11 +2,20 @@
 
 /* common attributes of all maplibre popups */
 
+#map > div:nth-child(7) {
+    max-width: 480px;
+}
+
 .maplibregl-popup-content {
     display: flex;
     overflow: hidden;
     background-color: var(--background_color);
     backdrop-filter: blur(0.2em);
+    padding: 6px 6px;
+    border-radius: 6px;
+    line-height: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    
 }
 
 /* close-button for the popup */
@@ -16,29 +25,9 @@
 
 /* disable little arrow for popups */
 .maplibregl-popup-tip{
-    display: none;
+    display: none;    
 }
 
-/* Styling des Popups */
-.riag_popup {
-    display: flex;
-    flex-direction: row;
-}
-
-/* Styling des Popup-Inhalts */
-.riag_popup_content {
-    flex-direction: column;      /* stack children vertically */
-    margin: 1px;
-}
-
-/* Styling des Titels von Popups*/
-.popup_title {
-    align-items: left;
-    text-align: left;
-    font-size: 6px;
+.popup-text {
     color: var(--color_popup_text_title);
-    text-align: left;
-
 }
-
-

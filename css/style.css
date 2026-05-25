@@ -3,6 +3,7 @@
 @import url('./mapelements/maplibreStyleBar.css');
 @import url('./scrollbar.css');
 @import url('./popups/mapLabels.css');
+@import url(https://db.onlinewebfonts.com/c/af9dbbacda3360d434dcce8ab8b6c38f?family=Hello+Paris+Serif+Medium);
 
 #map {
     position: absolute;
@@ -10,6 +11,10 @@
     right: 0; 
     bottom: 0; 
     left: 0;
+    font-size: 14px !important;
+    line-height: 25px;
+    font-family: "Hello Paris Serif Medium", "Sans-Serif";
+    letter-spacing: 0.2rem;
 }
 
 *:focus {
@@ -22,6 +27,28 @@
     --legend_background_color: #ffffff9f;
     --background_color_close: #eb6608;
     --background_color_close_hover: #eb670882;
-    --color_popup_text_content: #525252;
-    --color_popup_text_title: #004f9f;
+    --color_popup_text_content: #1f1f1f;
+    --color_popup_text_title: #b39929;
+}
+
+a:link {
+    color: var(--color_popup_text_content) !important; /* Force your brand color */
+    text-decoration: none;      /* Removes Chrome's default underline */
+}
+
+/* 2. Visited Link (Chrome heavily protects this state) */
+a:visited {
+    color: var(--color_popup_text_content) !important; /* Force your brand color */
+    text-decoration: none;      /* Removes Chrome's default underline */
+}
+
+/* 3. Mouse Hover */
+a:hover {
+    color: var(--color_popup_text_title) !important; /* Force your brand color */
+}
+
+/* 4. Active (The moment it is clicked) */
+a:active {
+    color: var(--color_popup_text_title) !important; /* Force your brand color */
+    text-decoration: none;      /* Removes Chrome's default underline */
 }
