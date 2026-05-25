@@ -12,7 +12,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "1",
-                "name": "<b>Hie zeremonieremer</b>",
+                "name": "<b>Hie zeremonieremer.</b>",
                 "rating": null,
                 "kind": "castle",
                 "URI": "https://de.wikipedia.org/wiki/Schloss_Oberhofen",
@@ -30,11 +30,11 @@
             "type": "Feature",
             "properties": {
                 "fid": "2",
-                "name": "<b>Hie chasch parkiere</b>",
+                "name": "<b>Hie chasch parkiere.</b>",
                 "rating": null,
                 "kind": "parking",
                 "URI": "https://de.wikipedia.org/wiki/Parkhaus",
-                "icon_size": 0.1
+                "icon_size": 0.08
             },
             "geometry": {
                 "type": "Point",
@@ -48,7 +48,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "2",
-                "name": "<b>Hie hätts oh no e Parkplatz</b>",
+                "name": "<b>Hie hätts oh no e Parkplatz.</b>",
                 "rating": null,
                 "kind": "parking",
                 "URI": "https://de.wikipedia.org/wiki/Parkplatz",
@@ -66,7 +66,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "3",
-                "name": "<b>Hie hesch äuä ke Platz de.<br><br>Gang doch is Parkhus Rider</b>",
+                "name": "<b>Hie hesch äuä ke Platz de.<br><br>Gang doch is Parkhus Rider.</b>",
                 "rating": null,
                 "kind": "no_parking",
                 "URI": "https://de.wikipedia.org/wiki/Parkplatz",
@@ -84,7 +84,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "4",
-                "name": "<b>Für hei<br><br>Im 15'-Takt bis 2244.<br>När hesch e Moonliner am 0231</b>",
+                "name": "<b>Für hei:<br><br>Im 15'-Takt bis 22:44.<br>När hesch e Moonliner am 02:31.</b>",
                 "rating": null,
                 "kind": "bus",
                 "URI": "https://de.wikipedia.org/wiki/Haltestelle",
@@ -102,7 +102,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "4",
-                "name": "<b>Für häre<br><br>Hie chunnsch ah wede mitem Bus chunnsch</b>",
+                "name": "<b>Für häre:<br><br>Hie chunnsch ah wede mitem Bus chunnsch.</b>",
                 "rating": null,
                 "kind": "bus",
                 "URI": "https://de.wikipedia.org/wiki/Haltestelle",
@@ -120,7 +120,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "5",
-                "name": "<b>Hie fahrt dr Bus für häre<br><br>Ig würd äuä 1202 aapeile</b>",
+                "name": "<b>Hie fahrt dr Bus für häre.<br><br>Ig würd äuä 12:02 oder 12:17 aapeile.</b>",
                 "rating": null,
                 "kind": "bus",
                 "URI": "https://de.wikipedia.org/wiki/Haltestelle",
@@ -139,11 +139,11 @@
             "type": "Feature",
             "properties": {
                 "fid": "6",
-                "name": "<b>Für die wo nächtige</b>",
+                "name": "<b>Für die wo nächtige.</b>",
                 "rating": null,
                 "kind": "hotel",
                 "URI": "https://www.hausamsee.ch/",
-                "icon_size": 0.2
+                "icon_size": 0.25
             },
             "geometry": {
                 "type": "Point",
@@ -157,7 +157,7 @@
             "type": "Feature",
             "properties": {
                 "fid": "7",
-                "name": "<b>Hie düemer mampfe när</b>",
+                "name": "<b>Hie düemer mampfe när.</b>",
                 "rating": null,
                 "kind": "restaurant",
                 "URI": "https://www.restaurant-schlossoberhofen.ch/de/",

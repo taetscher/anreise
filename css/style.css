@@ -1,8 +1,7 @@
-@import url('./popups/mapPopups.css');
-@import url('./popups/hover/hover_popups.css');
 @import url('./mapelements/maplibreStyleBar.css');
 @import url('./scrollbar.css');
 @import url('./popups/mapLabels.css');
+@import url('./style_switcher.css');
 @import url(https://db.onlinewebfonts.com/c/af9dbbacda3360d434dcce8ab8b6c38f?family=Hello+Paris+Serif+Medium);
 
 #map {
