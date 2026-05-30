@@ -82,9 +82,13 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
         formatted_name = "-".join([part.capitalize() for part in name.split("-")])
         spaced_names.append(" ".join(list(formatted_name)))
 
-    midpoint = (len(spaced_names) + 1) // 2
-    col1_text = "\n".join(spaced_names[:midpoint])
-    col2_text = "\n".join(spaced_names[midpoint:])
+    # NEU: Aufteilung der Namen auf exakt 3 Spalten
+    total_names = len(spaced_names)
+    per_col = (total_names + 2) // 3  # Aufrunden für gleichmässige Verteilung
+    
+    col1_text = "\n".join(spaced_names[:per_col])
+    col2_text = "\n".join(spaced_names[per_col:per_col*2])
+    col3_text = "\n".join(spaced_names[per_col*2:])
 
     # spielregeln definieren
     info_title = "Spielregle"
@@ -97,9 +101,16 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
     
     liste_y = 1.0 - LAYOUT_SPACING["titel_zu_liste_gap"]
     
+    # NEU: Spaltenabstände berechnen (z.B. bei 0.0, 0.35 und 0.70 auf der X-Achse)
+    col_width = LAYOUT_SPACING["spalte2_einzug"]  # Nutzt den bestehenden Einzug als Basiswert
+    
     ax_text.text(0.0, liste_y, col1_text, ha='left', va='top', transform=ax_text.transAxes,
                  fontsize=LAYOUT_FONTS["text_groesse"], fontname=custom_font_name, color=LAYOUT_COLORS["listen_text"], linespacing=1.4)
-    ax_text.text(LAYOUT_SPACING["spalte2_einzug"], liste_y, col2_text, ha='left', va='top', transform=ax_text.transAxes,
+    
+    ax_text.text(col_width, liste_y, col2_text, ha='left', va='top', transform=ax_text.transAxes,
+                 fontsize=LAYOUT_FONTS["text_groesse"], fontname=custom_font_name, color=LAYOUT_COLORS["listen_text"], linespacing=1.4)
+                 
+    ax_text.text(col_width * 2, liste_y, col3_text, ha='left', va='top', transform=ax_text.transAxes,
                  fontsize=LAYOUT_FONTS["text_groesse"], fontname=custom_font_name, color=LAYOUT_COLORS["listen_text"], linespacing=1.4)
 
     # block 2: spielregeln
