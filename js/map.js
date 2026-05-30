@@ -2,6 +2,7 @@
 import {addPOIs} from './layers/add_poi.js';
 import { updateLabels } from './tooltips/update_labels.js';
 import { createLabels } from './tooltips/labeling.js';
+import { createCountdown } from './countdown.js';
 
 //create new map
 const map = new maplibregl.Map({
@@ -26,6 +27,7 @@ map.on('load', async function() {
     await addPOIs(map);
     createLabels(map, 'pois');
     updateLabels(map);
+    createCountdown("June 19, 2026 13:00:00")
 
 });
 

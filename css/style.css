@@ -1,7 +1,7 @@
 @import url('./mapelements/maplibreStyleBar.css');
 @import url('./scrollbar.css');
 @import url('./popups/mapLabels.css');
-@import url('./style_switcher.css');
+@import url('./countdown.css');
 @import url(https://db.onlinewebfonts.com/c/af9dbbacda3360d434dcce8ab8b6c38f?family=Hello+Paris+Serif+Medium);
 
 #map {
@@ -13,7 +13,8 @@
     font-size: 14px !important;
     line-height: 25px;
     font-family: "Hello Paris Serif Medium", "Sans-Serif";
-    letter-spacing: 0.2rem;
+    font-weight: 500 !important;
+    letter-spacing: 5px;
 }
 
 *:focus {
@@ -32,7 +33,6 @@
 
 a:link {
     color: var(--color_popup_text_content) !important; /* Force your brand color */
-    text-decoration: none;      /* Removes Chrome's default underline */
 }
 
 /* 2. Visited Link (Chrome heavily protects this state) */

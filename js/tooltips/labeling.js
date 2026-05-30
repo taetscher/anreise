@@ -45,14 +45,25 @@ function createLabel(feature, map) {
     var name = feature.properties.name;
     var uri = feature.properties.URI;
 
+    if (uri.trim().length === 0) {
     // combine into html-element
-    const innerHTML = `
-    <a href="${uri}" target="blank">
-    <div class="pouptext">
-        ${name}
-    </div>
-    </a>
-    `;
+        var innerHTML = `
+        <div class="pouptext">
+            ${name}
+        </div>
+        `;
+    }
+    else {
+        // combine into html-element
+        var innerHTML = `
+        <a href="${uri}" target="blank">
+        <div class="pouptext">
+            ${name}
+        </div>
+        </a>
+        `;
+    };
+
 
     // calculate coordinates for popup
     const coords = feature.geometry.coordinates.slice();

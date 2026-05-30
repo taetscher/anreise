@@ -1,8 +1,3 @@
-# Anreise
-
-Damit me weiss, wo häre.
-
-```xml
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 100%;height: auto;" width="1100.75" height="1237.34375" viewBox="0 0 1100.75 1237.34375">
 <g fill="#000000" transform="scale(45.864583333333)"> <path d="M0,6h1.7v19.3h20.7V6H24l-1-2l1-2h-1V0H1v2H0l1,2L0,6z M22,25H2V6V5h20v1V25z"></path></g>
 <g transform="translate(0,136.59375)" fill="#000000">
@@ -595,5 +590,4 @@ Damit me weiss, wo häre.
 <g transform="translate(203.875,203.875)" fill="#000000"><g transform="scale(10.5)"><path d="M6,1.7v2.7C6,5.2,5.2,6,4.3,6H1.7C0.7,6,0,5.3,0,4.3V1.7C0,0.8,0.8,0,1.7,0h2.7C5.3,0,6,0.7,6,1.7z"></path></g></g>
 <g transform="translate(833.875,203.875)" fill="#000000"><g transform="scale(10.5)"><path d="M6,1.7v2.7C6,5.2,5.2,6,4.3,6H1.7C0.7,6,0,5.3,0,4.3V1.7C0,0.8,0.8,0,1.7,0h2.7C5.3,0,6,0.7,6,1.7z"></path></g></g>
 <g transform="translate(203.875,833.875)" fill="#000000"><g transform="scale(10.5)"><path d="M6,1.7v2.7C6,5.2,5.2,6,4.3,6H1.7C0.7,6,0,5.3,0,4.3V1.7C0,0.8,0.8,0,1.7,0h2.7C5.3,0,6,0.7,6,1.7z"></path></g></g></g>
-<text fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="130px" text-anchor="middle" x="550.375" y="160.66145833333">SCAN ME</text></svg>
-```
+<text fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="130px" text-anchor="middle" x="550.375" y="160.66145833333">Chärtli</text></svg>

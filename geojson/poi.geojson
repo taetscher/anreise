@@ -30,10 +30,10 @@
             "type": "Feature",
             "properties": {
                 "fid": "2",
-                "name": "<b>Hie chasch parkiere.</b>",
+                "name": "<b>Parkhuus Rider<br>Hie chasch parkiere.</b>",
                 "rating": null,
                 "kind": "parking",
-                "URI": "https://de.wikipedia.org/wiki/Parkhaus",
+                "URI": "",
                 "icon_size": 0.08
             },
             "geometry": {
@@ -48,10 +48,10 @@
             "type": "Feature",
             "properties": {
                 "fid": "2",
-                "name": "<b>Hie hätts oh no e Parkplatz.</b>",
+                "name": "<b>Hie hätts oh no e chlyne Parkplatz.</b>",
                 "rating": null,
                 "kind": "parking",
-                "URI": "https://de.wikipedia.org/wiki/Parkplatz",
+                "URI": "",
                 "icon_size": 0.05
             },
             "geometry": {
@@ -69,7 +69,7 @@
                 "name": "<b>Hie hesch äuä ke Platz de.<br><br>Gang doch is Parkhus Rider.</b>",
                 "rating": null,
                 "kind": "no_parking",
-                "URI": "https://de.wikipedia.org/wiki/Parkplatz",
+                "URI": "",
                 "icon_size": 0.08
             },
             "geometry": {
@@ -87,7 +87,7 @@
                 "name": "<b>Für hei:<br><br>Im 15'-Takt bis 22:44.<br>När hesch e Moonliner am 02:31.</b>",
                 "rating": null,
                 "kind": "bus",
-                "URI": "https://de.wikipedia.org/wiki/Haltestelle",
+                "URI": "https://www.sbb.ch/de?stops=Oberhofen+a.+T.,+Dorf_I8507174~Thun_I8507100&day=2026-06-19&time=22_00&moment=dep",
                 "icon_size": 0.06
             },
             "geometry": {
@@ -105,7 +105,7 @@
                 "name": "<b>Für häre:<br><br>Hie chunnsch ah wede mitem Bus chunnsch.</b>",
                 "rating": null,
                 "kind": "bus",
-                "URI": "https://de.wikipedia.org/wiki/Haltestelle",
+                "URI": "https://www.sbb.ch/de?stops=Thun_I8507100~Oberhofen+a.+T.,+Dorf_I8507174&day=2026-06-19&time=11_45&moment=dep",
                 "icon_size": 0.06
             },
             "geometry": {
@@ -123,7 +123,7 @@
                 "name": "<b>Hie fahrt dr Bus für häre.<br><br>Ig würd äuä 12:02 oder 12:17 aapeile.</b>",
                 "rating": null,
                 "kind": "bus",
-                "URI": "https://de.wikipedia.org/wiki/Haltestelle",
+                "URI": "https://www.sbb.ch/de?stops=Thun_I8507100~Oberhofen+a.+T.,+Dorf_I8507174&day=2026-06-19&time=11_45&moment=dep",
                 "icon_size": 0.06
             },
             "geometry": {
@@ -175,10 +175,10 @@
             "type": "Feature",
             "properties": {
                 "fid": "8",
-                "name": "<b>Chasch natürlech oh mitem Schiff cho, gäu.</b>",
+                "name": "<b>Chasch natürlech oh mitem Schiff cho gäu.</b>",
                 "rating": null,
                 "kind": "ship",
-                "URI": "https://de.wikipedia.org/wiki/Raddampfer",
+                "URI": "https://www.bls-schiff.ch/de",
                 "icon_size": 0.4
             },
             "geometry": {
@@ -196,7 +196,7 @@
                 "name": "<b>Hie isch dr Empfang.</b>",
                 "rating": null,
                 "kind": "start",
-                "URI": "https://de.wiktionary.org/wiki/Empfang",
+                "URI": "",
                 "icon_size": 0.15
             },
             "geometry": {

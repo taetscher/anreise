@@ -1,0 +1,27 @@
+#countdown-timer {
+    display: inline-block;
+
+    /*font*/
+    font-size: 24px;
+    font-weight: 800;
+
+    /*div*/
+    color: var(--color_popup_text_content);
+    background-color: var(--background_color);
+    backdrop-filter: blur(0.1em);
+    width: 80%;
+    box-sizing: border-box; /* Ensures padding doesn't push width past 95% */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    
+    /* Positioning Fixes */
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    pointer-events: auto;
+    text-align: center;
+}
