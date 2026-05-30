@@ -6,3 +6,8 @@ maki_icons
 *.gpkg
 *.gpkg-shm
 *.gpkg-wal
+
+#findmyname stuff
+hello_paris_serif.ttf
+names.csv
+*.pdf
