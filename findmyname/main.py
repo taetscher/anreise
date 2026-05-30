@@ -1,57 +1,20 @@
-import random
 from word_search_generator import WordSearch
 from config import RASTER_SIZE, EASTER_EGGS, DIFFICULTY
 from loader import load_names_from_csv
 from renderer import generate_pdf
 
-def inject_word_manually(grid, word_text):
-    """
-    fuegt ein wort manuell an einer zufaelligen, freien stelle im grid ein.
-    unterstuetzt horizontale, vertikale und diagonale platzierung (vorwaerts).
-    """
-    size = len(grid)
-    word_len = len(word_text)
-    
-    # moegliche richtungen: (zeilen_schritt, spalten_schritt)
-    directions = [
-        (0, 1),   # horizontal links nach rechts
-        (1, 0),   # vertikal oben nach unten
-        (1, 1),   # diagonal oben-links nach unten-rechts
-        (-1, 1)   # diagonal unten-links nach oben-rechts
-    ]
-    
-    # wir versuchen bis zu 2000 mal, das wort kollisionsfrei reinzuquetschen
-    for _ in range(2000):
-        dr, dc = random.choice(directions)
-        
-        # startpositionen auswuerfeln basierend auf der richtung
-        if dr == 0:
-            start_r = random.randint(0, size - 1)
-        elif dr == 1:
-            start_r = random.randint(0, size - word_len)
-        else:
-            start_r = random.randint(word_len - 1, size - 1)
-            
-        start_c = random.randint(0, size - word_len)
-        
-        coords = []
-        for i in range(word_len):
-            curr_r = start_r + (i * dr)
-            curr_c = start_c + (i * dc)
-            coords.append((curr_r, curr_c))
-            
-        return coords, dr, dc, start_r, start_c
-    return None
-
 def main():
     csv_filename = './findmyname/names.csv'
+    
+    # daten über den loader einlesen
     names_list, original_hyphen_names = load_names_from_csv(csv_filename)
+    total_names_count = len(names_list)
 
     # =====================================================================
-    # unterwort-konflikte isolieren
+    # native trennung in zwei listen (verhindert den substring-fehler)
     # =====================================================================
     normal_words = []
-    conflict_words = []
+    substring_words = []
 
     for name in names_list:
         is_substring = False
@@ -60,65 +23,71 @@ def main():
                 is_substring = True
                 break
         if is_substring:
-            conflict_words.append(name)
+            substring_words.append(name)
         else:
             normal_words.append(name)
 
+    # die echten ostereierelemente werden in kleinbuchstaben konvertiert
     easter_eggs_clean = [egg.lower() for egg in EASTER_EGGS]
     
+    # die unterwörter kommen zusammen mit den ostereiern in die geheime liste
+    secret_words_pool = substring_words + easter_eggs_clean
+
     normal_words_string = ", ".join(normal_words)
-    secret_words_string = ", ".join(easter_eggs_clean)
+    secret_words_string = ", ".join(secret_words_pool)
     # =====================================================================
 
     max_attempts = 50
     puzzle = None
-    placed_words_generator = []
 
-    print(f"\nGeneriere Basis-Rätsel (Grösse {RASTER_SIZE})...")
+    print(f"\nGeneriere Rätsel (Grösse {RASTER_SIZE}). Suche nach Layout...")
 
     for attempt in range(1, max_attempts + 1):
         puzzle = WordSearch(normal_words_string, size=RASTER_SIZE, secret_words=secret_words_string, level=DIFFICULTY)
         puzzle.generator.chars = "abcdefghijklmnopqrstuvwxyzäöüéèàçë"
         
-        placed_words_generator = [word.text.lower() for word in puzzle.placed_words if word.text.lower() not in easter_eggs_clean]
-        failed_count = sum(1 for n in normal_words if n not in placed_words_generator)
+        # extrahiere alle direkt vom generator platzierten wörter (kleingeschrieben)
+        raw_placed = [word.text.lower() for word in puzzle.placed_words]
+        
+        # FIXED: ein name gilt als platziert, wenn er entweder eigenständig existiert
+        # ODER wenn er nachweislich als unterwort in einem plazierten wort (wie dan in dani) steckt!
+        placed_words_generator = []
+        for name in names_list:
+            if name in raw_placed or any(name in longer_word for longer_word in raw_placed):
+                # wir filtern die echten ostereier aus, damit sie nicht auf die liste rutschen
+                if name not in easter_eggs_clean:
+                    placed_words_generator.append(name)
+        
+        # abgleich mit deiner originalen csv-liste für absolute mathematische präzision
+        failed_names = [n for n in names_list if n not in placed_words_generator]
+        
+        placed_count = total_names_count - len(failed_names)
+        failed_count = len(failed_names)
+        
+        log_message = f"  → Versuch {attempt}: Von {total_names_count} Namen wurden {placed_count} platziert und {failed_count} nicht."
         
         if failed_count == 0:
-            print(f"  → [ERFOLG] Basis-Layout stabil generiert!")
+            print(f"  → [PERFEKT] Alle {total_names_count} Namen erfolgreich platziert im Versuch {attempt}!")
             break
         else:
-            print(f"  → Versuch {attempt}: Berechne Layout neu...", end="\r")
+            if attempt >= 45 or attempt == 1:
+                print(log_message)
+            else:
+                print(log_message, end="\r")
     else:
-        print(f"\n[WARNUNG] Basis-Layout unvollstaendig. Erhöhe RASTER_SIZE.")
+        # =====================================================================
+        # fehler-logausgabe nach fehlgeschlagenen versuchen
+        # =====================================================================
+        print(f"\n\n[WARNUNG] Nach {max_attempts} Versuchen fehlen immer noch {len(failed_names)} Namen!")
+        print(f"Zusammenfassung: Von {total_names_count} Namen wurden {total_names_count - len(failed_names)} platziert und {len(failed_names)} nicht.")
+        print("-" * 60)
+        print("DIESE NAMEN KONNTEN NICHT PLATZIERT WERDEN:")
+        for f_name in failed_names:
+            orig_display = original_hyphen_names.get(f_name, f_name)
+            print(f"  ❌ '{orig_display}'")
+        print("-" * 60)
 
-    # =====================================================================
-    # MANUELLE INJEKTION DER KONFLIKT-NAMEN
-    # =====================================================================
-    grid = puzzle.puzzle
-    
-    # custom-klasse fuer manuell eingefuegte woerter
-    class ManualWord:
-        def __init__(self, text, coordinates):
-            self.text = text
-            self.coordinates = coordinates
-            self.secret = False
-
-    if conflict_words:
-        print(f"\nInjiere {len(conflict_words)} Konflikt-Namen manuell ins Buchstabenfeld...")
-        for c_word in conflict_words:
-            result = inject_word_manually(grid, c_word)
-            if result:
-                coords, dr, dc, start_r, start_c = result
-                for i, (r, c) in enumerate(coords):
-                    grid[r][c] = c_word[i]
-                
-                # speichert die koordinaten sauber als koordinatenobjekt ab
-                manual_obj = ManualWord(c_word, coords)
-                puzzle.placed_words.add(manual_obj)
-                placed_words_generator.append(c_word)
-                print(f"  ✅ '{original_hyphen_names[c_word]}' erfolgreich eingebaut.")
-
-    # originalnamen für die anzeige wiederherstellen
+    # originalnamen für die spaltenanzeige wiederherstellen
     restored_names = []
     for name in placed_words_generator:
         if name in original_hyphen_names:

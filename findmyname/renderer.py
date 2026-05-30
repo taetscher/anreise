@@ -2,7 +2,7 @@ import os
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 import matplotlib.gridspec as gridspec
-from config import LAYOUT_COLORS, LAYOUT_FONTS, LAYOUT_SPACING
+from config import LAYOUT_COLORS, LAYOUT_FONTS, LAYOUT_SPACING, INFO_TEXT
 
 # custom font laden und global registrieren
 font_path = "./findmyname/hello_paris_serif.ttf"
@@ -27,7 +27,6 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
                            left=0.05, right=0.95, top=0.92, bottom=0.08)
     
     # --- LINKER CONTAINER (ROW 1, COL 1): DAS BUCHSTABENRASTER ---
-    # FIXED: gs[0] zugewiesen, um die linke spalte zu aktivieren
     ax_grid = fig.add_subplot(gs[0])
     ax_grid.set_facecolor(LAYOUT_COLORS["hintergrund"])
     ax_grid.axis('off')
@@ -37,35 +36,20 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
     # koordinaten für das lösungsblatt ermitteln
     solution_coords = set()
     if is_solution:
-        for word in puzzle.placed_words:
-            # checken, ob es sich um ein manuelles word-objekt handelt (aus der main.py)
-            if hasattr(word, 'coordinates') and isinstance(word.coordinates, list):
-                for r, c in word.coordinates:
-                    solution_coords.add((r, c))
-            else:
-                # mathematisch präzise schritt-berechnung für native woerter
-                r = word.start_row
-                c = word.start_column
-                
-                d_str = word.direction.name if hasattr(word.direction, 'name') else str(word.direction)
-                
-                dr, dc = 0, 0
-                if 'N' in d_str: dr = -1
-                if 'S' in d_str: dr = 1
-                if 'E' in d_str: dc = 1
-                if 'W' in d_str: dc = -1
-                
-                for _ in range(len(word.text)):
-                    solution_coords.add((r, c))
-                    r += dr
-                    c += dc
+        for word in puzzle.words:
+            if word.placed:
+                for coord in word.coordinates:
+                    # FIXED: extrahiert die indizes absolut sauber, egal welcher datentyp geliefert wird
+                    if hasattr(coord, 'row') and hasattr(coord, 'col'):
+                        solution_coords.add((coord.row, coord.col))
+                    elif isinstance(coord, (tuple, list)) and len(coord) == 2:
+                        solution_coords.add((coord[0], coord[1]))
 
     # raster zeichnen
     for r in range(size):
         for c in range(size):
             char = grid[r][c].lower()
             
-            # farb- und gewichtslogik für das lösungsblatt
             if is_solution:
                 if (r, c) in solution_coords:
                     char_color = LAYOUT_COLORS["loesung_highlight"]
@@ -88,7 +72,6 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
     ax_grid.set_ylim(-0.5, size - 0.5)
 
     # --- RECHTER CONTAINER (ROW 1, COL 2): SIDEBAR (FLEXBOX BEHAVIOR) ---
-    # FIXED: gs[1] zugewiesen, um die rechte spalte separat anzusteuern
     ax_text = fig.add_subplot(gs[1])
     ax_text.set_facecolor(LAYOUT_COLORS["hintergrund"])
     ax_text.axis('off')
@@ -105,19 +88,7 @@ def generate_pdf(output_path, puzzle, restored_names, original_hyphen_names, is_
 
     # spielregeln definieren
     info_title = "Spielregle"
-    info_text = (
-        "D Näme chöi i alli 8 Himmusrichtige versteckt si:\n"
-        "- West-Ost ( vo links nach rächts )\n"
-        "- Ost-West ( vo rächts nach links )\n"
-        "- Nord-Süd ( vo obe nach unge )\n"
-        "- Süd-Nord ( vo unge nach obe )\n"
-        "- Sowie diagonal ( NW, NO, SW, SO ), gäu!\n\n"
-        "- Umlutte si umgformt: Ä -> AE\n"
-        "- Dr H-U isch dr HU, Dr Günter isch dr Guenter\n"
-        "- Aber dr Cédi blibt dr Cédi u d Noëlla isch d Noëlla\n"
-        "- We zwöi glich heisse, isch ide Enderi die Gschwinderi\n\n"
-        "+ Es chönnt si, dasses meh z finde gitt aus nur Die Näme"
-    )
+    info_text = INFO_TEXT
 
     # block 1: fingsch di? titel & listen
     titel1_erweiterung = " (Lösig)" if is_solution else ""
