@@ -38,7 +38,8 @@ export async function addPOIs(map) {
                 'no_parking', 1,
                 'parking', 2,
                 'bus', 3,
-                'restaurant', 4
+                'start', 4,
+                'restaurant', 5
                 , 8
             ]
         }
@@ -65,7 +66,7 @@ export async function addPOIs(map) {
 
         map.flyTo({
             center: targetCenter,
-            zoom: 17.8,
+            zoom: 18.8,
             speed: 1.2,
             essential: true
         });

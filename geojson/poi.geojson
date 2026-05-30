@@ -197,7 +197,7 @@
                 "rating": null,
                 "kind": "start",
                 "URI": "",
-                "icon_size": 0.15
+                "icon_size": 0.1
             },
             "geometry": {
                 "type": "Point",
