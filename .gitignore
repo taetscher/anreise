@@ -11,3 +11,7 @@ maki_icons
 hello_paris_serif.ttf
 names.csv
 *.pdf
+
+# ignoriert alle pycache-ordner im gesamten projekt
+**/__pycache__/
+*.pyc

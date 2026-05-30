@@ -20,7 +20,7 @@ LAYOUT_FONTS = {
 LAYOUT_SPACING = {
     "spalten_abstand": 0.09,        # gutter zwischen buchstabenraster und sidebar
     "titel_zu_liste_gap": 0.06,     # margin-top zwischen titel 1 und namensliste (standard: 6%)
-    "titel_zu_regeln_gap": 0.32,    # vertikale platzierung des spielregel-titels (von unten gemessen)
+    "titel_zu_regeln_gap": 0.28,    # vertikale platzierung des spielregel-titels (von unten gemessen)
     "spalte2_einzug": 0.48          # horizontaler x-versatz für die zweite namensspalte (48%)
 }
 
@@ -31,6 +31,7 @@ DIFFICULTY = 3
 EASTER_EGGS = [
     "Melyamin",
     "Fred",
+    "Lazy",
     "Leandro"
 ]
 
@@ -43,10 +44,10 @@ INFO_TEXT = (
         "- West-Ost ( vo links nach rächts ) aber oh Ost-West ( vo rächts nach links )\n"
         "- Nord-Süd ( vo obe nach unge ) und oh Süd-Nord ( vo unge nach obe )\n"
         "- Sowie diagonal ( NW, NO, SW, SO ), gäu!\n"
-        "- Und oh gspieglet. Sorry.\n"
-        "- Umlutte gitts nid: Ä -> AE. Dr Mäni wird zum Maeni (oder genau dä äbe nid?)\n"
+        "- Und oh gspieglet. Und gspieglet und diagonal. Sorry.\n"
+        "- Umlutte gitts nid: Ä -> AE.  Dr Mäni wird zum Maeni (oder genau dä äbe nid?)\n"
         "- Dr H-U isch dr HU, aber dr Cédi blibt dr Cédi u d Noëlla isch d Noëlla\n"
-        "- We zwöi glich heisse, isch die Enderi die Gschwinderi Deborah\n"
+        "- We zwöi glich heisse, isch die Enderi die Gschwinderi  Deborah\n"
         "- We dr eint si Name us 50% vom andere macht, suechesi zäme eine\n"
-        "+ Es chönnt si, dasses meh z finde gitt aus nur Die Näme obe"
+        "+ Es chönnt si, dasses meh z finde gitt aus nur  Die Näme obe"
     )
