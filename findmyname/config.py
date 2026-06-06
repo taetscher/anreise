@@ -36,7 +36,9 @@ EASTER_EGGS = [
     "ElTorro",
     "Stöfe",
     "Schoggitiger",
-    "Dohus"
+    "Dohus",
+    "Tibia",
+    "Fibula"
 ]
 
 # grösse des rätselfelds
@@ -44,14 +46,14 @@ RASTER_SIZE = 30
 
 
 INFO_TEXT = (
-        "Wörter chöi i alli 8 Himmusrichtige versteckt si:\n"
+        "Wörter chöi i allne 8 Himmusrichtige versteckt si:\n"
         "- West-Ost ( vo links nach rächts ) aber oh Ost-West ( vo rächts nach links )\n"
         "- Nord-Süd ( vo obe nach unge ) und oh Süd-Nord ( vo unge nach obe )\n"
-        "- Sowie diagonal ( NW, NO, SW, SO ), gäu!\n"
+        "- Sowie diagonal ( NW, NO, SW, SO )\n"
         "- Und oh gspieglet. Und gspieglet und diagonal. Sorry.\n"
         "- Umlutte gitts nid: Ä -> AE.  Dr Mäni wird zum Maeni (oder genau dä äbe nid?)\n"
         "- Dr H-U isch dr HU, aber dr Cédi blibt dr Cédi\n"
         "- We zwöi glich heisse, isch die Enderi die Gschwinderi  Deborah\n"
         "- We dr eint si Name us 50% vom andere macht, suechesi zäme eine\n"
-        "+ Es chönnt si, dasses meh z finde gitt aus nur  Die Näme obe"
+        "+ Es chönnt si, dasses meh z finde gitt aus nur öii Näme"
     )
